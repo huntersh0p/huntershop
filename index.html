@@ -4,23 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hunter Client | Ghost Client for Minecraft 1.21</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Urbanist:wght@400;600;800;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- External CSS stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- CANVAS FOR INTERACTIVE BACKGROUND PARTICLES -->
     <canvas id="particles-canvas"></canvas>
 
-    <!-- NAVIGATION BAR -->
     <header>
         <div class="logo-container">
-            <!-- LOGO BLANCO CON GLOW BLANCO -->
-            <img src="{CFE1CD3F-6EDA-4919-BC7C-FB81DB2E880B}.png" alt="Hunter Logo" class="logo-img" onerror="this.src='https://media.discordapp.net/attachments/1497738737420079104/1508606344142393546/CFE1CD3F-6EDA-4919-BC7C-FB81DB2E880B.png?ex=6a1626a4&is=6a14d524&hm=2668e8737d914d38517ec1eda695b861174f3ed2e811564550712850662fa931&=&format=webp&quality=lossless'">
+            <img src="logo.png" alt="Hunter Logo" class="logo-img">
             <div class="logo-text">Hunter<span>Client</span></div>
         </div>
         <nav>
@@ -34,7 +28,6 @@
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero" id="home">
         <div class="hero-wrapper">
             <div class="badge-status-top"><span class="pulse-dot"></span> GHOST CLIENT FOR 1.21</div>
@@ -47,7 +40,6 @@
         </div>
     </section>
 
-    <!-- FEATURES SECTION -->
     <section class="features" id="features">
         <div class="section-header visual-reveal">
             <span class="sub-title">GHOST CLIENT FEATURES</span>
@@ -72,7 +64,6 @@
         </div>
     </section>
 
-    <!-- SELF DESTRUCT SECTION -->
     <section class="self-destruct" id="security">
         <div class="sd-container">
             <div class="sd-content visual-reveal">
@@ -93,7 +84,6 @@
         </div>
     </section>
 
-    <!-- SERVERS SECTION -->
     <section class="servers" id="servers">
         <span class="sub-title visual-reveal">GLOBAL INTERACTION</span>
         <h2 class="visual-reveal">DOMINATE THESE SERVERS</h2>
@@ -110,7 +100,6 @@
         </div>
     </section>
 
-    <!-- INTERACTIVE PRESENTATION SECTION (SLIDES) -->
     <section class="slides-section" id="presentation">
         <div class="section-header visual-reveal">
             <span class="sub-title">INTERACTIVE DOSSIER</span>
@@ -119,7 +108,6 @@
         </div>
 
         <div class="slider-container visual-reveal">
-            <!-- Slide 1 -->
             <div class="slide active">
                 <div class="slide-inner">
                     <h3>01 / WELCOME</h3>
@@ -129,7 +117,6 @@
                 </div>
             </div>
 
-            <!-- Slide 2 -->
             <div class="slide">
                 <div class="slide-inner">
                     <h3>02 / BYPASS ENGINE</h3>
@@ -139,7 +126,6 @@
                 </div>
             </div>
 
-            <!-- Slide 3 -->
             <div class="slide">
                 <div class="slide-inner">
                     <h3>03 / GHOST PROTOCOLS</h3>
@@ -149,7 +135,6 @@
                 </div>
             </div>
 
-            <!-- Slide 4 -->
             <div class="slide">
                 <div class="slide-inner">
                     <h3>04 / NETWORK</h3>
@@ -159,13 +144,11 @@
                 </div>
             </div>
 
-            <!-- Slider Navigation Controls -->
             <button class="slide-btn prev-btn" onclick="moveSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
             <button class="slide-btn next-btn" onclick="moveSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
     </section>
 
-    <!-- PRICING SECTION -->
     <section class="pricing" id="pricing">
         <div class="section-header visual-reveal">
             <span class="sub-title">PERMANENT ACCESS</span>
@@ -173,7 +156,6 @@
         </div>
         
         <div class="pricing-grid">
-            <!-- PLAN BÁSICO -->
             <div class="price-card visual-reveal">
                 <h3>Hell V1</h3>
                 <p class="card-desc">Perfect to experience the core ghost client architecture with essential cheat modules and permanent access.</p>
@@ -189,7 +171,6 @@
                 <a href="#" class="btn-buy">Buy Now</a>
             </div>
 
-            <!-- PLAN PREMIUM (HIGHLIGHTED) -->
             <div class="price-card featured visual-reveal">
                 <div class="popular-tag">Most Popular</div>
                 <h3>Hell V2</h3>
@@ -206,7 +187,6 @@
                 <a href="#" class="btn-buy featured-btn">Buy Now</a>
             </div>
 
-            <!-- PLAN .EXE -->
             <div class="price-card visual-reveal">
                 <h3>Hell V2 EXE</h3>
                 <p class="card-desc">The ultimate ghost client tier. Runs directly via external execution memory mapping protocols for maximum stealth.</p>
@@ -224,14 +204,11 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 <span class="neon-text-footer">Hunter Client</span>. All rights reserved. Not affiliated with Mojang Synergies AB.</p>
     </footer>
 
-    <!-- INTERACTION AND SMOOTH ANIMATION SCRIPT -->
     <script>
-        // SLIDER CONTROL
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
 
@@ -243,7 +220,7 @@
             slides.forEach((slide, i) => {
                 slide.classList.remove('active');
                 if (i === currentSlide) {
-                    slide.add('active');
+                    slide.classList.add('active');
                 }
             });
         }
@@ -252,7 +229,6 @@
             showSlide(currentSlide + step);
         }
 
-        // SMOOTH INTERACTIVE PARTICLE ENGINE
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -277,12 +253,11 @@
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-
                 if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
                 if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
             }
             draw() {
-                ctx.fillStyle = 'rgba(255, 0, 51, 0.4)';
+                ctx.fillStyle = 'rgba(220, 220, 230, 0.4)';
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -309,7 +284,7 @@
                     let distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < 120) {
-                        ctx.strokeStyle = `rgba(255, 0, 51, ${0.1 - (distance / 120) * 0.1})`;
+                        ctx.strokeStyle = `rgba(220, 220, 230, ${0.1 - (distance / 120) * 0.1})`;
                         ctx.lineWidth = 0.8;
                         ctx.beginPath();
                         ctx.moveTo(particleArray[a].x, particleArray[a].y);
@@ -324,7 +299,6 @@
         initParticles();
         animateParticles();
 
-        // ULTRA SMOOTH SCROLL OBSERVER ANIMATION
         const observerOptions = {
             threshold: 0.1,
             rootMargin: "0px 0px -50px 0px"
