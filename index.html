@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Urbanist:wght@400;600;800;900&display=swap" rel="stylesheet">
     <!-- FontAwesome para Íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Archivo CSS Externo -->
+    <!-- Archivo CSS Externo (Asegúrate de que se llame así en tu repositorio) -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -46,24 +46,24 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE CARACTERÍSTICAS (DIAPOSITIVAS INCORPORADAS) -->
+    <!-- SECCIÓN DE CARACTERÍSTICAS -->
     <section class="features" id="caracteristicas">
         <div class="section-header">
             <span class="sub-title">RENDIMIENTO MODULAR</span>
             <h2>CARACTERÍSTICAS <span>PREMIUM</span></h2>
         </div>
         <div class="features-grid">
-            <div class="feature-card animate-on-scroll">
+            <div class="feature-card">
                 <div class="icon-box"><i class="fa-solid fa-gauge-high"></i></div>
                 <h3>MAX FPS</h3>
                 <p>Optimización nativa que exprime tu CPU/GPU superando por completo los límites de Sodium y Lunar Client en BoxPvP.</p>
             </div>
-            <div class="feature-card animate-on-scroll">
+            <div class="feature-card">
                 <div class="icon-box"><i class="fa-solid fa-ghost"></i></div>
                 <h3>BYPASS PRO</h3>
                 <p>Algoritmos avanzados de simulación de clicks y movimientos para ser completamente invisibles ante los anticheats.</p>
             </div>
-            <div class="feature-card animate-on-scroll">
+            <div class="feature-card">
                 <div class="icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                 <h3>VISUALS NEON</h3>
                 <p>Renderizado avanzado in-game, HUD totalmente personalizable y perfiles de color adaptados a tu setup.</p>
@@ -71,7 +71,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN SELF DESTRUCT (PASA DESAPERCIBIDO) -->
+    <!-- SECCIÓN SELF DESTRUCT -->
     <section class="self-destruct" id="seguridad">
         <div class="sd-container">
             <div class="sd-content">
@@ -92,7 +92,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN SERVIDORES (INTÉNTALO TÚ MISMO) -->
+    <!-- SECCIÓN SERVIDORES -->
     <section class="servers" id="servidores">
         <span class="sub-title">COMPATIBILIDAD GLOBAL</span>
         <h2>¡INTÉNTALO TÚ MISMO AQUÍ!</h2>
@@ -108,7 +108,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE PRESENTACIÓN INTERACTIVA (DIAPOSITIVAS) -->
+    <!-- SECCIÓN DIAPOSITIVAS (SLIDER) -->
     <section class="slides-section" id="presentacion">
         <div class="section-header">
             <span class="sub-title">DOSSIER INTERACTIVO</span>
@@ -172,7 +172,7 @@
         
         <div class="pricing-grid">
             <!-- PLAN BÁSICO -->
-            <div class="price-card animate-on-scroll">
+            <div class="price-card">
                 <h3>Hunter V1</h3>
                 <p class="card-desc">Acceso inmediato y permanente con optimizaciones y ventajas de combate esenciales.</p>
                 <div class="price">€5<span>/ lifetime</span></div>
@@ -187,8 +187,8 @@
                 <a href="#" class="btn-buy">ADQUIRIR YA</a>
             </div>
 
-            <!-- PLAN PREMIUM (DESTACADO) -->
-            <div class="price-card featured animate-on-scroll">
+            <!-- PLAN PREMIUM -->
+            <div class="price-card featured">
                 <div class="popular-tag">MÁS POPULAR</div>
                 <h3>Hunter V2</h3>
                 <p class="card-desc">El estándar de la comunidad competitiva. Desbloquea ventajas avanzadas de bypass.</p>
@@ -205,7 +205,7 @@
             </div>
 
             <!-- PLAN .EXE -->
-            <div class="price-card animate-on-scroll">
+            <div class="price-card">
                 <h3>Hunter V2 EXE</h3>
                 <p class="card-desc">La versión premium máxima. Inyección externa limpia directamente sobre memoria.</p>
                 <div class="price">€15<span>/ lifetime</span></div>
@@ -224,103 +224,67 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 <span class="neon-text-footer">Hunter Client</span>. Todos los derechos reservados. No afiliado de ninguna forma con Mojang Synergies AB.</p>
+        <p>&copy; 2026 <span class="neon-text-footer">Hunter Client</span>. Todos los derechos reservados. No afiliado con Mojang Synergies AB.</p>
     </footer>
 
-    <!-- SCRIPT DE INTERACTIVIDAD (SLIDER Y PARTICULAS) -->
     <script>
-        // SCRIPT DEL SLIDER DE DIAPOSITIVAS
+        // SLIDER
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
-
         function showSlide(index) {
             if (index >= slides.length) currentSlide = 0;
             else if (index < 0) currentSlide = slides.length - 1;
             else currentSlide = index;
-
             slides.forEach((slide, i) => {
                 slide.classList.remove('active');
-                if (i === currentSlide) {
-                    slide.classList.add('active');
-                }
+                if (i === currentSlide) slide.classList.add('active');
             });
         }
+        function moveSlide(step) { showSlide(currentSlide + step); }
 
-        function moveSlide(step) {
-            showSlide(currentSlide + step);
-        }
-
-        // MOTOR DE PARTÍCULAS INTERACTIVAS NEON
+        // PARTICULAS
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
         const particleArray = [];
-        const numberOfParticles = 65;
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = Math.random() * 0.6 - 0.3;
-                this.speedY = Math.random() * 0.6 - 0.3;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
-                if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
-            }
-            draw() {
-                ctx.fillStyle = 'rgba(255, 0, 51, 0.45)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function initParticles() {
-            for (let i = 0; i < numberOfParticles; i++) {
-                particleArray.push(new Particle());
-            }
+        for (let i = 0; i < 65; i++) {
+            particleArray.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                size: Math.random() * 2 + 1,
+                speedX: Math.random() * 0.6 - 0.3,
+                speedY: Math.random() * 0.6 - 0.3
+            });
         }
 
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particleArray.length; i++) {
-                particleArray[i].update();
-                particleArray[i].draw();
-            }
+            particleArray.forEach(p => {
+                p.x += p.speedX; p.y += p.speedY;
+                if (p.x > canvas.width || p.x < 0) p.speedX = -p.speedX;
+                if (p.y > canvas.height || p.y < 0) p.speedY = -p.speedY;
+                ctx.fillStyle = 'rgba(255, 0, 51, 0.45)';
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+            });
             
-            // Dibujar líneas entre partículas cercanas
             for (let a = 0; a < particleArray.length; a++) {
                 for (let b = a; b < particleArray.length; b++) {
                     let dx = particleArray[a].x - particleArray[b].x;
                     let dy = particleArray[a].y - particleArray[b].y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 110) {
-                        ctx.strokeStyle = `rgba(255, 0, 51, ${0.12 - (distance / 110) * 0.12})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
+                    let dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 110) {
+                        ctx.strokeStyle = `rgba(255, 0, 51, ${0.12 - (dist / 110) * 0.12})`;
+                        ctx.lineWidth = 1; ctx.beginPath();
                         ctx.moveTo(particleArray[a].x, particleArray[a].y);
-                        ctx.lineTo(particleArray[b].x, particleArray[b].y);
-                        ctx.stroke();
+                        ctx.lineTo(particleArray[b].x, particleArray[b].y); ctx.stroke();
                     }
                 }
             }
             requestAnimationFrame(animateParticles);
         }
-
-        initParticles();
         animateParticles();
     </script>
 </body>
