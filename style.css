@@ -24,7 +24,6 @@ body {
     overflow-x: hidden;
 }
 
-/* --- CANVAS PARA FONDO DE PARTÍCULAS --- */
 #particles-canvas {
     position: fixed;
     top: 0;
@@ -35,7 +34,7 @@ body {
     pointer-events: none;
 }
 
-/* --- BARRA NAVEGACIÓN --- */
+/* --- NAVBAR --- */
 header {
     display: flex;
     justify-content: space-between;
@@ -48,6 +47,7 @@ header {
     top: 0;
     z-index: 100;
     border-bottom: 1px solid var(--border-dim);
+    box-sizing: border-box;
 }
 
 .logo-container {
@@ -102,7 +102,7 @@ nav a.nav-discord:hover {
     color: #fff;
 }
 
-/* --- SECCIÓN HERO --- */
+/* --- HERO --- */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -202,7 +202,7 @@ nav a.nav-discord:hover {
     transform: translateY(-3px);
 }
 
-/* --- ESTRUCTURAS DE ENCABEZADO --- */
+/* --- ESTRUCTURAS --- */
 .section-header {
     text-align: center;
     margin-bottom: 60px;
@@ -217,18 +217,19 @@ nav a.nav-discord:hover {
     margin-bottom: 10px;
 }
 
-.section-header h2, .features h2, .self-destruct h2, .servers h2, .pricing h2 {
+h2 {
     font-size: 42px;
     font-weight: 900;
     text-transform: uppercase;
+    margin: 0;
 }
 
-.section-header h2 span, h2 span {
+h2 span {
     color: var(--neon-color);
     text-shadow: 0 0 15px var(--neon-glow);
 }
 
-/* --- SECCIÓN CARACTERÍSTICAS --- */
+/* --- CARACTERÍSTICAS --- */
 .features {
     padding: 100px 8%;
     position: relative;
@@ -276,7 +277,7 @@ nav a.nav-discord:hover {
     font-size: 15px;
 }
 
-/* --- SECCIÓN SEGURIDAD / SELF DESTRUCT --- */
+/* --- SEGURIDAD --- */
 .self-destruct {
     padding: 100px 8%;
     position: relative;
@@ -304,6 +305,7 @@ nav a.nav-discord:hover {
 
 .sd-list {
     list-style: none;
+    padding: 0;
 }
 
 .sd-list li {
@@ -350,7 +352,7 @@ nav a.nav-discord:hover {
     color: #2ecc71;
 }
 
-/* --- SECCIÓN SERVIDORES --- */
+/* --- SERVIDORES --- */
 .servers {
     padding: 100px 8%;
     text-align: center;
@@ -411,7 +413,7 @@ nav a.nav-discord:hover {
     font-size: 18px;
 }
 
-/* --- SECCIÓN DIAPOSITIVAS (SLIDER) --- */
+/* --- SLIDER --- */
 .slides-section {
     padding: 100px 8%;
     position: relative;
@@ -448,6 +450,7 @@ nav a.nav-discord:hover {
     justify-content: center;
     align-items: center;
     padding: 50px;
+    box-sizing: border-box;
 }
 
 .slide.active {
@@ -503,6 +506,7 @@ nav a.nav-discord:hover {
     align-items: center;
     justify-content: center;
     transition: var(--transition-smooth);
+    z-index: 10;
 }
 
 .slide-btn:hover {
@@ -514,7 +518,7 @@ nav a.nav-discord:hover {
 .prev-btn { left: 20px; }
 .next-btn { right: 20px; }
 
-/* --- SECCIÓN PRECIOS --- */
+/* --- PRECIOS --- */
 .pricing {
     padding: 100px 8%;
     position: relative;
@@ -540,6 +544,7 @@ nav a.nav-discord:hover {
     flex-direction: column;
     position: relative;
     transition: var(--transition-smooth);
+    box-sizing: border-box;
 }
 
 .price-card:hover {
@@ -603,6 +608,7 @@ nav a.nav-discord:hover {
 .price-card ul {
     list-style: none;
     margin-bottom: 40px;
+    padding: 0;
 }
 
 .price-card li {
@@ -638,6 +644,7 @@ nav a.nav-discord:hover {
     font-size: 14px;
     transition: var(--transition-smooth);
     margin-top: auto;
+    box-sizing: border-box;
 }
 
 .btn-buy:hover {
@@ -676,34 +683,19 @@ footer p {
     color: var(--neon-color);
 }
 
-/* --- KEYFRAMES ANIMACIONES --- */
+/* --- KEYFRAMES --- */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse {
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(255, 0, 51, 0.5);
-    }
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 10px rgba(255, 0, 51, 0);
-    }
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(255, 0, 51, 0);
-    }
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 51, 0.5); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 0, 51, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 51, 0); }
 }
 
-/* --- RESPONSIBO --- */
+/* --- RESPONSIVO --- */
 @media (max-width: 992px) {
     .sd-container { flex-direction: column; text-align: center; }
     .sd-list li { justify-content: center; }
