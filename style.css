@@ -1,10 +1,10 @@
-/* --- GLOBAL DEEP BLACK CONFIGURATIONS & VARIABLES --- */
+/* --- GLOBAL SILVER/WHITE NEON CONFIGURATIONS & VARIABLES --- */
 :root {
     --bg-dark: #000000;
     --bg-surface: #050505;
     --bg-surface-accent: #0c0c0c;
-    --neon-color: #ff0033;
-    --neon-glow: rgba(255, 0, 51, 0.55);
+    --neon-color: #e0e0e0;
+    --neon-glow: rgba(224, 224, 224, 0.55);
     --text-white: #ffffff;
     --text-muted: #777777;
     --border-dim: #111111;
@@ -60,11 +60,11 @@ header {
     gap: 12px;
 }
 
-/* LOGO BLANCO CON GLOW BLANCO */
+/* LOGO BLANCO CON GLOW PLATEADO NEON */
 .logo-img {
     height: 42px;
     width: auto;
-    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+    filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(255, 255, 255, 0.7));
 }
 
 .logo-text {
@@ -76,7 +76,7 @@ header {
 
 .logo-text span {
     color: var(--neon-color);
-    text-shadow: 0 0 12px var(--neon-glow);
+    text-shadow: 0 0 15px var(--neon-glow);
 }
 
 nav a {
@@ -111,10 +111,10 @@ nav a:hover::after {
 }
 
 nav a.nav-discord {
-    background-color: rgba(255, 0, 51, 0.08);
+    background-color: rgba(224, 224, 224, 0.08);
     padding: 10px 22px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 0, 51, 0.25);
+    border: 1px solid rgba(224, 224, 224, 0.25);
 }
 
 nav a.nav-discord::after {
@@ -124,7 +124,7 @@ nav a.nav-discord::after {
 nav a.nav-discord:hover {
     background-color: var(--neon-color);
     box-shadow: 0 0 20px var(--neon-glow);
-    color: #fff;
+    color: #000;
     transform: translateY(-2px);
 }
 
@@ -136,7 +136,7 @@ nav a.nav-discord:hover {
     align-items: center;
     position: relative;
     z-index: 1;
-    background: radial-gradient(circle at center, rgba(255, 0, 51, 0.05) 0%, rgba(0, 0, 0, 0) 75%);
+    background: radial-gradient(circle at center, rgba(224, 224, 224, 0.05) 0%, rgba(0, 0, 0, 0) 75%);
     padding: 0 20px;
 }
 
@@ -147,8 +147,8 @@ nav a.nav-discord:hover {
 }
 
 .badge-status-top {
-    background: rgba(255, 0, 51, 0.05);
-    border: 1px solid rgba(255, 0, 51, 0.2);
+    background: rgba(224, 224, 224, 0.05);
+    border: 1px solid rgba(224, 224, 224, 0.2);
     padding: 8px 22px;
     font-size: 11px;
     font-weight: 800;
@@ -209,13 +209,13 @@ nav a.nav-discord:hover {
 
 .btn-primary {
     background-color: var(--neon-color);
-    color: #fff;
+    color: #000;
     box-shadow: 0 0 25px var(--neon-glow);
 }
 
 .btn-primary:hover {
     transform: translateY(-4px);
-    box-shadow: 0 0 35px rgba(255, 0, 51, 0.8);
+    box-shadow: 0 0 35px rgba(224, 224, 224, 0.8);
 }
 
 .btn-secondary {
@@ -226,7 +226,7 @@ nav a.nav-discord:hover {
 
 .btn-secondary:hover {
     border-color: var(--neon-color);
-    background-color: rgba(255, 0, 51, 0.03);
+    background-color: rgba(224, 224, 224, 0.03);
     transform: translateY(-4px);
 }
 
@@ -294,8 +294,8 @@ h2 span {
 }
 
 .feature-card:hover {
-    border-color: rgba(255, 0, 51, 0.4);
-    box-shadow: 0 15px 40px rgba(255, 0, 51, 0.06);
+    border-color: rgba(224, 224, 224, 0.4);
+    box-shadow: 0 15px 40px rgba(224, 224, 224, 0.06);
     transform: translateY(-8px);
 }
 
@@ -414,14 +414,15 @@ h2 span {
 }
 
 .server-badge {
-    background: linear-gradient(135deg, var(--neon-color) 0%, #900018 100%);
+    background: linear-gradient(135deg, #e0e0e0 0%, #888888 100%);
+    color: #000;
     padding: 6px 24px;
     font-size: 11px;
     font-weight: 900;
     border-radius: 30px;
     display: inline-block;
     margin: 20px 0 60px 0;
-    box-shadow: 0 0 20px var(--neon-glow);
+    box-shadow: 0 0 20px rgba(224, 224, 224, 0.3);
     letter-spacing: 1px;
 }
 
@@ -450,14 +451,14 @@ h2 span {
 .server-card:hover {
     border-color: var(--neon-color);
     transform: scale(1.06) translateY(-4px);
-    box-shadow: 0 10px 25px rgba(255, 0, 51, 0.12);
+    box-shadow: 0 10px 25px rgba(224, 224, 224, 0.12);
 }
 
 .srv-ico {
     width: 50px;
     height: 50px;
     background-color: var(--bg-surface-accent);
-    border: 1px solid rgba(255, 0, 51, 0.15);
+    border: 1px solid rgba(224, 224, 224, 0.15);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -470,7 +471,7 @@ h2 span {
 
 .server-card:hover .srv-ico {
     background-color: var(--neon-color);
-    color: #fff;
+    color: #000;
     box-shadow: 0 0 15px var(--neon-glow);
 }
 
@@ -583,8 +584,8 @@ h2 span {
 .slide-btn:hover {
     border-color: var(--neon-color);
     color: var(--neon-color);
-    background: rgba(255, 0, 51, 0.03);
-    box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);
+    background: rgba(224, 224, 224, 0.03);
+    box-shadow: 0 0 15px rgba(224, 224, 224, 0.2);
 }
 
 .prev-btn { left: 24px; }
@@ -621,18 +622,18 @@ h2 span {
 
 .price-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(255, 0, 51, 0.25);
+    border-color: rgba(224, 224, 224, 0.25);
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8);
 }
 
 .price-card.featured {
     border: 1px solid var(--neon-color);
-    box-shadow: 0 0 40px rgba(255, 0, 51, 0.1);
-    background-color: #050102;
+    box-shadow: 0 0 40px rgba(224, 224, 224, 0.1);
+    background-color: #050505;
 }
 
 .price-card.featured:hover {
-    box-shadow: 0 20px 50px rgba(255, 0, 51, 0.15);
+    box-shadow: 0 20px 50px rgba(224, 224, 224, 0.15);
 }
 
 .popular-tag {
@@ -641,7 +642,7 @@ h2 span {
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--neon-color);
-    color: #fff;
+    color: #000;
     font-size: 11px;
     font-weight: 900;
     padding: 5px 22px;
@@ -742,10 +743,11 @@ h2 span {
     background-color: var(--neon-color);
     border: none;
     box-shadow: 0 0 20px var(--neon-glow);
+    color: #000;
 }
 
 .btn-buy.featured-btn:hover {
-    box-shadow: 0 0 30px var(--neon-color);
+    box-shadow: 0 0 30px rgba(224, 224, 224, 0.8);
     background-color: #ffffff;
     color: #000000;
 }
@@ -784,9 +786,9 @@ footer p {
 }
 
 @keyframes pulseGlow {
-    0% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(255, 0, 51, 0.6); }
-    70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(255, 0, 51, 0); }
-    100% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(255, 0, 51, 0); }
+    0% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(224, 224, 224, 0.6); }
+    70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(224, 224, 224, 0); }
+    100% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(224, 224, 224, 0); }
 }
 
 @keyframes pulseGlowGreen {
