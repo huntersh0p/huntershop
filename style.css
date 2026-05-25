@@ -1,10 +1,10 @@
-/* --- GLOBAL SILVER/WHITE NEON CONFIGURATIONS & VARIABLES --- */
+/* --- GLOBAL SILVER NEON CONFIGURATIONS --- */
 :root {
     --bg-dark: #000000;
     --bg-surface: #050505;
     --bg-surface-accent: #0c0c0c;
-    --neon-color: #e0e0e0;
-    --neon-glow: rgba(224, 224, 224, 0.55);
+    --neon-color: #c0c0c0;
+    --neon-glow: rgba(192, 192, 192, 0.6);
     --text-white: #ffffff;
     --text-muted: #777777;
     --border-dim: #111111;
@@ -64,7 +64,7 @@ header {
 .logo-img {
     height: 42px;
     width: auto;
-    filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(255, 255, 255, 0.7));
+    filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(192, 192, 192, 0.8));
 }
 
 .logo-text {
@@ -111,10 +111,10 @@ nav a:hover::after {
 }
 
 nav a.nav-discord {
-    background-color: rgba(224, 224, 224, 0.08);
+    background-color: rgba(192, 192, 192, 0.08);
     padding: 10px 22px;
     border-radius: 8px;
-    border: 1px solid rgba(224, 224, 224, 0.25);
+    border: 1px solid rgba(192, 192, 192, 0.25);
 }
 
 nav a.nav-discord::after {
@@ -136,7 +136,7 @@ nav a.nav-discord:hover {
     align-items: center;
     position: relative;
     z-index: 1;
-    background: radial-gradient(circle at center, rgba(224, 224, 224, 0.05) 0%, rgba(0, 0, 0, 0) 75%);
+    background: radial-gradient(circle at center, rgba(192, 192, 192, 0.06) 0%, rgba(0, 0, 0, 0) 75%);
     padding: 0 20px;
 }
 
@@ -147,8 +147,8 @@ nav a.nav-discord:hover {
 }
 
 .badge-status-top {
-    background: rgba(224, 224, 224, 0.05);
-    border: 1px solid rgba(224, 224, 224, 0.2);
+    background: rgba(192, 192, 192, 0.05);
+    border: 1px solid rgba(192, 192, 192, 0.2);
     padding: 8px 22px;
     font-size: 11px;
     font-weight: 800;
@@ -215,7 +215,7 @@ nav a.nav-discord:hover {
 
 .btn-primary:hover {
     transform: translateY(-4px);
-    box-shadow: 0 0 35px rgba(224, 224, 224, 0.8);
+    box-shadow: 0 0 35px rgba(192, 192, 192, 0.8);
 }
 
 .btn-secondary {
@@ -226,7 +226,7 @@ nav a.nav-discord:hover {
 
 .btn-secondary:hover {
     border-color: var(--neon-color);
-    background-color: rgba(224, 224, 224, 0.03);
+    background-color: rgba(192, 192, 192, 0.03);
     transform: translateY(-4px);
 }
 
@@ -294,8 +294,8 @@ h2 span {
 }
 
 .feature-card:hover {
-    border-color: rgba(224, 224, 224, 0.4);
-    box-shadow: 0 15px 40px rgba(224, 224, 224, 0.06);
+    border-color: rgba(192, 192, 192, 0.4);
+    box-shadow: 0 15px 40px rgba(192, 192, 192, 0.06);
     transform: translateY(-8px);
 }
 
@@ -414,7 +414,7 @@ h2 span {
 }
 
 .server-badge {
-    background: linear-gradient(135deg, #e0e0e0 0%, #888888 100%);
+    background: linear-gradient(135deg, #c0c0c0 0%, #808080 100%);
     color: #000;
     padding: 6px 24px;
     font-size: 11px;
@@ -422,7 +422,7 @@ h2 span {
     border-radius: 30px;
     display: inline-block;
     margin: 20px 0 60px 0;
-    box-shadow: 0 0 20px rgba(224, 224, 224, 0.3);
+    box-shadow: 0 0 20px rgba(192, 192, 192, 0.3);
     letter-spacing: 1px;
 }
 
@@ -451,14 +451,14 @@ h2 span {
 .server-card:hover {
     border-color: var(--neon-color);
     transform: scale(1.06) translateY(-4px);
-    box-shadow: 0 10px 25px rgba(224, 224, 224, 0.12);
+    box-shadow: 0 10px 25px rgba(192, 192, 192, 0.12);
 }
 
 .srv-ico {
     width: 50px;
     height: 50px;
     background-color: var(--bg-surface-accent);
-    border: 1px solid rgba(224, 224, 224, 0.15);
+    border: 1px solid rgba(192, 192, 192, 0.15);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -584,8 +584,8 @@ h2 span {
 .slide-btn:hover {
     border-color: var(--neon-color);
     color: var(--neon-color);
-    background: rgba(224, 224, 224, 0.03);
-    box-shadow: 0 0 15px rgba(224, 224, 224, 0.2);
+    background: rgba(192, 192, 192, 0.03);
+    box-shadow: 0 0 15px rgba(192, 192, 192, 0.2);
 }
 
 .prev-btn { left: 24px; }
@@ -622,18 +622,18 @@ h2 span {
 
 .price-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(224, 224, 224, 0.25);
+    border-color: rgba(192, 192, 192, 0.25);
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8);
 }
 
 .price-card.featured {
     border: 1px solid var(--neon-color);
-    box-shadow: 0 0 40px rgba(224, 224, 224, 0.1);
+    box-shadow: 0 0 40px rgba(192, 192, 192, 0.1);
     background-color: #050505;
 }
 
 .price-card.featured:hover {
-    box-shadow: 0 20px 50px rgba(224, 224, 224, 0.15);
+    box-shadow: 0 20px 50px rgba(192, 192, 192, 0.15);
 }
 
 .popular-tag {
@@ -747,7 +747,7 @@ h2 span {
 }
 
 .btn-buy.featured-btn:hover {
-    box-shadow: 0 0 30px rgba(224, 224, 224, 0.8);
+    box-shadow: 0 0 30px rgba(192, 192, 192, 0.8);
     background-color: #ffffff;
     color: #000000;
 }
@@ -786,9 +786,9 @@ footer p {
 }
 
 @keyframes pulseGlow {
-    0% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(224, 224, 224, 0.6); }
-    70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(224, 224, 224, 0); }
-    100% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(224, 224, 224, 0); }
+    0% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(192, 192, 192, 0.6); }
+    70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(192, 192, 192, 0); }
+    100% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(192, 192, 192, 0); }
 }
 
 @keyframes pulseGlowGreen {
