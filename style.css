@@ -1,14 +1,13 @@
 /* --- GLOBAL DEEP BLACK CONFIGURATIONS & VARIABLES --- */
 :root {
-    --bg-dark: #000000; /* Deep absolute black */
-    --bg-surface: #050505; /* Clean contrasting dark pitch */
+    --bg-dark: #000000;
+    --bg-surface: #050505;
     --bg-surface-accent: #0c0c0c;
     --neon-color: #ff0033;
     --neon-glow: rgba(255, 0, 51, 0.55);
     --text-white: #ffffff;
     --text-muted: #777777;
     --border-dim: #111111;
-    /* Custom cubic-bezier for high-end cinematic smoothness */
     --transition-smooth: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -61,10 +60,11 @@ header {
     gap: 12px;
 }
 
+/* LOGO BLANCO CON GLOW BLANCO */
 .logo-img {
     height: 42px;
     width: auto;
-    filter: drop-shadow(0 0 10px var(--neon-color));
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
 }
 
 .logo-text {
