@@ -5,703 +5,323 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hunter Client | Web Oficial</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Urbanist:wght@400;600;800;900&display=swap" rel="stylesheet">
     <!-- FontAwesome para Íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* --- CONFIGURACIÓN BASE Y VARIABLES (Estilo Neon Rojo) --- */
-        :root {
-            --bg-main: #050505;
-            --bg-card: #0d0d0d;
-            --bg-card-hover: #121212;
-            --accent-neon: #ff0033;
-            --accent-glow: rgba(255, 0, 51, 0.6);
-            --text-main: #ffffff;
-            --text-muted: #a0a0a0;
-            --border-color: #161616;
-            --clean-green: #2ecc71;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* --- BARRA DE NAVEGACIÓN --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: rgba(5, 5, 5, 0.85);
-            backdrop-filter: blur(12px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-img {
-            height: 42px;
-            width: auto;
-            /* Aplicamos el filtro neon rojo sobre el logo {CFE1CD3F-6EDA-4919-BC7C-FB81DB2E880B}.png */
-            filter: drop-shadow(0 0 8px var(--accent-neon));
-        }
-
-        .logo-text {
-            font-size: 22px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .logo-text span {
-            color: var(--accent-neon);
-            text-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        nav a {
-            color: var(--text-main);
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: 600;
-            font-size: 15px;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent-neon);
-            text-shadow: 0 0 8px var(--accent-glow);
-        }
-
-        /* --- SECCIÓN HERO --- */
-        .hero {
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 140px 20px 60px 20px;
-            background: radial-gradient(circle at center, rgba(255, 0, 51, 0.12) 0%, rgba(5, 5, 5, 1) 65%);
-        }
-
-        .hero h1 {
-            font-size: 72px;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            line-height: 1.1;
-        }
-
-        .hero h1 span {
-            color: var(--accent-neon);
-            text-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        .hero p {
-            font-size: 19px;
-            color: var(--text-muted);
-            max-width: 650px;
-            margin-bottom: 35px;
-        }
-
-        /* --- BOTONES --- */
-        .btn-group {
-            display: flex;
-            gap: 20px;
-        }
-
-        .btn {
-            padding: 14px 38px;
-            font-size: 16px;
-            font-weight: 700;
-            border-radius: 8px;
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-neon);
-            color: #ffffff;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px var(--accent-neon);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 2px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--bg-card);
-            border-color: var(--accent-neon);
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);
-        }
-
-        /* --- SECCIÓN SELF DESTRUCT (PASA DESAPERCIBIDO) --- */
-        .self-destruct {
-            padding: 100px 8%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .sd-content {
-            flex: 1;
-        }
-
-        .sd-tag {
-            color: var(--text-muted);
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .sd-content h2 {
-            font-size: 48px;
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 25px;
-        }
-
-        .sd-content p {
-            color: var(--text-muted);
-            font-size: 16px;
-            margin-bottom: 30px;
-            max-width: 550px;
-        }
-
-        .sd-list {
-            list-style: none;
-        }
-
-        .sd-list li {
-            font-size: 15px;
-            margin-bottom: 15px;
-            color: #e0e0e0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .sd-list li::before {
-            content: "▪";
-            color: var(--accent-neon);
-            font-size: 18px;
-        }
-
-        .sd-status {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        .status-badge {
-            background-color: rgba(46, 204, 113, 0.05);
-            border: 1px solid rgba(46, 204, 113, 0.2);
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: 600;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--clean-green);
-            border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 0 10px var(--clean-green);
-        }
-
-        .status-badge span.clean-text {
-            color: var(--clean-green);
-            font-weight: 700;
-        }
-
-        /* --- SECCIÓN SERVIDORES (INTÉNTALO TÚ MISMO) --- */
-        .servers-section {
-            padding: 90px 8%;
-            text-align: center;
-            background: linear-gradient(180deg, #050505 0%, #080808 100%);
-        }
-
-        .servers-section .tag {
-            color: var(--text-muted);
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .servers-section h2 {
-            font-size: 38px;
-            font-weight: 900;
-            margin-bottom: 25px;
-        }
-
-        .mode-badge {
-            background: linear-gradient(135deg, var(--accent-neon) 0%, #990011 100%);
-            color: #fff;
-            padding: 6px 22px;
-            font-size: 14px;
-            font-weight: 700;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 50px;
-            box-shadow: 0 0 15px var(--accent-glow);
-            text-transform: uppercase;
-        }
-
-        .server-logos-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 25px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .server-item {
-            background-color: #0c0c0c;
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 12px;
-            width: 110px;
-            height: 110px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .server-item:hover {
-            border-color: var(--accent-neon);
-            box-shadow: 0 0 15px rgba(255, 0, 51, 0.15);
-            transform: scale(1.05);
-        }
-
-        .server-placeholder-icon {
-            width: 45px;
-            height: 45px;
-            background-color: #161616;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-neon);
-            font-size: 18px;
-            font-weight: 700;
-            border: 1px solid rgba(255, 0, 51, 0.2);
-        }
-
-        .server-item span {
-            font-size: 11px;
-            color: var(--text-muted);
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        /* --- SECCIÓN PRECIOS / PLANES --- */
-        .pricing {
-            padding: 110px 8%;
-            text-align: center;
-            background-color: #050505;
-        }
-
-        .pricing .tag {
-            color: var(--text-muted);
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .pricing h2 {
-            font-size: 46px;
-            font-weight: 900;
-            margin-bottom: 50px;
-        }
-
-        .pricing-grid {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-            flex-wrap: wrap;
-            gap: 25px;
-            max-width: 1140px;
-            margin: 0 auto;
-        }
-
-        .price-card {
-            background-color: #0a0a0a;
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 50px 35px;
-            width: 340px;
-            text-align: left;
-            position: relative;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .price-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 0, 51, 0.4);
-            background-color: #0d0d0d;
-        }
-
-        /* El plan Premium del medio está destacado con bordes e iluminación roja */
-        .price-card.featured {
-            border: 1px solid var(--accent-neon);
-            box-shadow: 0 0 25px rgba(255, 0, 51, 0.15);
-            background-color: #0b0607;
-        }
-
-        .price-card.featured:hover {
-            background-color: #0f080a;
-            box-shadow: 0 0 30px rgba(255, 0, 51, 0.25);
-        }
-
-        .badge {
-            position: absolute;
-            top: -14px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--accent-neon) 0%, #cc0029 100%);
-            color: #fff;
-            padding: 4px 18px;
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            border-radius: 20px;
-            box-shadow: 0 0 10px var(--accent-glow);
-            letter-spacing: 1px;
-        }
-
-        .price-card h3 {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .price-card.featured h3 {
-            color: var(--accent-neon);
-            text-shadow: 0 0 10px rgba(255, 0, 51, 0.2);
-        }
-
-        .price-card .desc {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 30px;
-            min-height: 44px;
-            line-height: 1.5;
-        }
-
-        .price-card .amount {
-            font-size: 52px;
-            font-weight: 900;
-            color: #fff;
-            margin-bottom: 35px;
-            display: flex;
-            align-items: baseline;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
-        }
-
-        .price-card .amount span {
-            font-size: 15px;
-            color: var(--text-muted);
-            font-weight: 400;
-            margin-left: 6px;
-        }
-
-        .price-card ul {
-            list-style: none;
-            margin-bottom: 40px;
-        }
-
-        .price-card li {
-            font-size: 14px;
-            margin-bottom: 14px;
-            color: #e2e2e2;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .price-card li i {
-            color: var(--accent-neon);
-            font-size: 14px;
-            border: 1px solid rgba(255, 0, 51, 0.3);
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(255, 0, 51, 0.05);
-        }
-
-        .price-btn {
-            width: 100%;
-            padding: 14px;
-            text-align: center;
-            border-radius: 8px;
-            font-weight: 700;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            margin-top: auto;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-card-standard {
-            background-color: #111;
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-card-standard:hover {
-            background-color: var(--text-main);
-            color: #000;
-        }
-
-        .btn-card-featured {
-            background-color: #ffffff;
-            color: #000000;
-        }
-
-        .btn-card-featured:hover {
-            background-color: var(--accent-neon);
-            color: #ffffff;
-            box-shadow: 0 0 15px var(--accent-neon);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: #030303;
-            padding: 40px 8%;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-
-        footer p span {
-            color: var(--accent-neon);
-        }
-
-        /* --- RESPONSIVO --- */
-        @media (max-width: 992px) {
-            .self-destruct { flex-direction: column; text-align: center; }
-            .sd-status { justify-content: center; }
-            .sd-content p { margin: 0 auto 30px auto; }
-            .sd-list li { justify-content: center; }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 46px; }
-            .btn-group { flex-direction: column; width: 100%; max-width: 300px; }
-            nav { display: none; }
-            .price-card { width: 100%; max-width: 360px; }
-        }
-    </style>
+    <!-- Archivo CSS Externo -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <!-- CANVAS PARA PARTICULAS INTERACTIVAS -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- BARRA DE NAVEGACIÓN -->
     <header>
         <div class="logo-container">
-            <!-- Espacio para la imagen original del logo {CFE1CD3F-6EDA-4919-BC7C-FB81DB2E880B}.png -->
             <img src="{CFE1CD3F-6EDA-4919-BC7C-FB81DB2E880B}.png" alt="Hunter Logo" class="logo-img" onerror="this.src='https://placehold.co/100x100/000/ff0033?text=H'">
             <div class="logo-text">Hunter<span>Client</span></div>
         </div>
         <nav>
-            <a href="#">Inicio</a>
-            <a href="#bypass">Seguridad</a>
+            <a href="#inicio">Inicio</a>
+            <a href="#caracteristicas">Características</a>
+            <a href="#seguridad">Seguridad</a>
             <a href="#servidores">Servidores</a>
             <a href="#precios">Precios</a>
-            <a href="https://discord.gg/tu-invitacion" target="_blank">Discord</a>
+            <a href="#presentacion">Presentación</a>
+            <a href="https://discord.gg/tu-invitacion" target="_blank" class="nav-discord"><i class="fa-brands fa-discord"></i> Discord</a>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <h1><span>Hunter</span> Client</h1>
-        <p>El cliente definitivo diseñado para la optimización extrema en modalidades competitivas y un rendimiento indetectable de nivel premium.</p>
-        <div class="btn-group">
-            <a href="#precios" class="btn btn-primary"><i class="fa-solid fa-arrow-down"></i> Elegir Plan</a>
-            <a href="https://discord.gg/tu-invitacion" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-discord"></i> Comunidad Discord</a>
+    <!-- SECCIÓN HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-wrapper">
+            <div class="badge-status-top"><span class="pulse-dot"></span> ACTUALIZADO PARA 1.21.4</div>
+            <h1><span>HUNTER</span> CLIENT</h1>
+            <p class="hero-tagline">El depredador definitivo de la escena competitiva. Optimización a nivel de bytecode, bypass avanzado y rendimiento indetectable.</p>
+            <div class="btn-group">
+                <a href="#precios" class="btn btn-primary"><i class="fa-solid fa-crosshairs"></i> ADQUIRIR AHORA</a>
+                <a href="#presentacion" class="btn btn-secondary"><i class="fa-solid fa-scroll"></i> VER DIAPOSITIVAS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CARACTERÍSTICAS (DIAPOSITIVAS INCORPORADAS) -->
+    <section class="features" id="caracteristicas">
+        <div class="section-header">
+            <span class="sub-title">RENDIMIENTO MODULAR</span>
+            <h2>CARACTERÍSTICAS <span>PREMIUM</span></h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card animate-on-scroll">
+                <div class="icon-box"><i class="fa-solid fa-gauge-high"></i></div>
+                <h3>MAX FPS</h3>
+                <p>Optimización nativa que exprime tu CPU/GPU superando por completo los límites de Sodium y Lunar Client en BoxPvP.</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="icon-box"><i class="fa-solid fa-ghost"></i></div>
+                <h3>BYPASS PRO</h3>
+                <p>Algoritmos avanzados de simulación de clicks y movimientos para ser completamente invisibles ante los anticheats.</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3>VISUALS NEON</h3>
+                <p>Renderizado avanzado in-game, HUD totalmente personalizable y perfiles de color adaptados a tu setup.</p>
+            </div>
         </div>
     </section>
 
     <!-- SECCIÓN SELF DESTRUCT (PASA DESAPERCIBIDO) -->
-    <section class="self-destruct" id="bypass">
-        <div class="sd-content">
-            <span class="sd-tag">Self Destruct</span>
-            <h2>Pasa desapercibido.</h2>
-            <p>Un atajo y el cliente desaparece por completo de cualquier herramienta de detección automatizada o manual. Sin rastros en el log, sin ventanas residuales, cero pánico.</p>
-            <ul class="sd-list">
-                <li>Detección de screenshare bypass</li>
-                <li>Elimina los logs al instante</li>
-                <li>Evita cualquier posible detección activa</li>
-            </ul>
-        </div>
-        <div class="sd-status">
-            <div class="status-badge">
-                <span class="status-dot"></span> User is <span class="clean-text">clean</span>
+    <section class="self-destruct" id="seguridad">
+        <div class="sd-container">
+            <div class="sd-content">
+                <span class="sub-title">SEGURIDAD ABSOLUTA</span>
+                <h2>PASA <span>DESAPERCIBIDO</span></h2>
+                <p>Nuestra función exclusiva de <strong>Self-Destruct</strong> elimina cualquier rastro residual del cliente en la memoria RAM y del registro de Windows en milisegundos ante una revisión sorpresa.</p>
+                <ul class="sd-list">
+                    <li><i class="fa-solid fa-shield-halved"></i> Cero rastros en registros internos del sistema.</li>
+                    <li><i class="fa-solid fa-mask"></i> Bypass indetectable en revisiones de ScreenShare (SS).</li>
+                    <li><i class="fa-solid fa-bolt"></i> Limpieza instantánea mediante Hotkey asignada.</li>
+                </ul>
+            </div>
+            <div class="sd-display">
+                <div class="clean-panel">
+                    <span class="pulse-green"></span> STATUS: <span class="highlight-green">USER IS CLEAN</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- SECCIÓN SERVIDORES (INTÉNTALO TÚ MISMO) -->
-    <section class="servers-section" id="servidores">
-        <span class="tag">Lo más jugado por nuestros usuarios</span>
-        <h2>¡Inténtalo tú mismo aquí!</h2>
-        <div class="mode-badge">Boxpvp</div>
+    <section class="servers" id="servidores">
+        <span class="sub-title">COMPATIBILIDAD GLOBAL</span>
+        <h2>¡INTÉNTALO TÚ MISMO AQUÍ!</h2>
+        <div class="server-badge">MODALIDAD BOXPVP DOMINADA</div>
         
-        <div class="server-logos-grid">
-            <div class="server-item">
-                <div class="server-placeholder-icon">S</div>
-                <span>SnowMC</span>
+        <div class="servers-grid">
+            <div class="server-card"><div class="srv-ico">S</div><h4>SnowMC</h4></div>
+            <div class="server-card"><div class="srv-ico">K</div><h4>KrakenMC</h4></div>
+            <div class="server-card"><div class="srv-ico">M</div><h4>MineGold</h4></div>
+            <div class="server-card"><div class="srv-ico">T</div><h4>TiltedBox</h4></div>
+            <div class="server-card"><div class="srv-ico">B</div><h4>MineBoom</h4></div>
+            <div class="server-card"><div class="srv-ico">M</div><h4>MeetionMC</h4></div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PRESENTACIÓN INTERACTIVA (DIAPOSITIVAS) -->
+    <section class="slides-section" id="presentacion">
+        <div class="section-header">
+            <span class="sub-title">DOSSIER INTERACTIVO</span>
+            <h2>PRESENTACIÓN DEL <span>CLIENTE</span></h2>
+            <p class="slides-desc">Explora las diapositivas técnicas integradas. Navega usando las flechas laterales.</p>
+        </div>
+
+        <div class="slider-container">
+            <!-- Diapositiva 1 -->
+            <div class="slide active">
+                <div class="slide-inner">
+                    <h3>01 / BIENVENIDA</h3>
+                    <div class="slide-divider"></div>
+                    <h4>HUNTER CLIENT NEON</h4>
+                    <p>La combinación perfecta entre estética visual cibernética y optimización militar para Minecraft 1.21.4.</p>
+                </div>
             </div>
-            <div class="server-item">
-                <div class="server-placeholder-icon">M</div>
-                <span>MineGold</span>
+
+            <!-- Diapositiva 2 -->
+            <div class="slide">
+                <div class="slide-inner">
+                    <h3>02 / RENDIMIENTO</h3>
+                    <div class="slide-divider"></div>
+                    <h4>BENCHMARKS TÉCNICOS</h4>
+                    <p>Pruebas internas demuestran incrementos estables de hasta un 45% más de fluidez en renderizado de mapas saturados de BoxPvP en comparación con launchers estándar.</p>
+                </div>
             </div>
-            <div class="server-item">
-                <div class="server-placeholder-icon">K</div>
-                <span>KrakenMC</span>
+
+            <!-- Diapositiva 3 -->
+            <div class="slide">
+                <div class="slide-inner">
+                    <h3>03 / SEGURIDAD</h3>
+                    <div class="slide-divider"></div>
+                    <h4>BYPASS DE MEDAL CPS</h4>
+                    <p>Control de aleatorización de clicks por milisegundos, evitando patrones repetitivos identificables por herramientas automáticas de baneo.</p>
+                </div>
             </div>
-            <div class="server-item">
-                <div class="server-placeholder-icon">T</div>
-                <span>TiltedBox</span>
+
+            <!-- Diapositiva 4 -->
+            <div class="slide">
+                <div class="slide-inner">
+                    <h3>04 / COMUNIDAD</h3>
+                    <div class="slide-divider"></div>
+                    <h4>SOPORTE DE ACCESO DIRECTO</h4>
+                    <p>Actualizaciones directas en la nube basadas en el feedback de nuestra comunidad competitiva y administradores de confianza.</p>
+                </div>
             </div>
-            <div class="server-item">
-                <div class="server-placeholder-icon">B</div>
-                <span>MineBoom</span>
-            </div>
-            <div class="server-item">
-                <div class="server-placeholder-icon">M</div>
-                <span>MeetionMC</span>
-            </div>
-            <div class="server-item">
-                <div class="server-placeholder-icon">E</div>
-                <span>ElectroMC</span>
-            </div>
+
+            <!-- Controles del Slider -->
+            <button class="slide-btn prev-btn" onclick="moveSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="slide-btn next-btn" onclick="moveSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
     </section>
 
     <!-- SECCIÓN DE PRECIOS -->
     <section class="pricing" id="precios">
-        <span class="tag">Precios</span>
-        <h2>Elige tu plan.</h2>
+        <div class="section-header">
+            <span class="sub-title">ACCESO PERMANENTE</span>
+            <h2>ELIGE TU <span>EDICIÓN</span></h2>
+        </div>
         
         <div class="pricing-grid">
-            
             <!-- PLAN BÁSICO -->
-            <div class="price-card">
+            <div class="price-card animate-on-scroll">
                 <h3>Hunter V1</h3>
-                <p class="desc">Perfecto para probar HunterClient con lo esencial. Acceso de por vida sin renovaciones periódicas.</p>
-                <div class="amount">€5<span>/ lifetime</span></div>
+                <p class="card-desc">Acceso inmediato y permanente con optimizaciones y ventajas de combate esenciales.</p>
+                <div class="price">€5<span>/ lifetime</span></div>
+                <div class="divider"></div>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> Versión 1.21</li>
-                    <li><i class="fa-solid fa-check"></i> Acceso de por vida</li>
-                    <li><i class="fa-solid fa-check"></i> Módulos principales</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Compatibilidad v1.21.4</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Acceso Lifetime de por vida</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Módulos PvP Esenciales</li>
+                    <li class="blocked"><i class="fa-solid fa-circle-xmark"></i> Bypass Medal CPS</li>
+                    <li class="blocked"><i class="fa-solid fa-circle-xmark"></i> Archivo .EXE Inyectable</li>
                 </ul>
-                <button class="price-btn btn-card-standard">Buy Now</button>
+                <a href="#" class="btn-buy">ADQUIRIR YA</a>
             </div>
 
             <!-- PLAN PREMIUM (DESTACADO) -->
-            <div class="price-card featured">
-                <div class="badge">Más popular</div>
+            <div class="price-card featured animate-on-scroll">
+                <div class="popular-tag">MÁS POPULAR</div>
                 <h3>Hunter V2</h3>
-                <p class="desc">El plan que elige la mayoría. Incluye bypass de Medal CPS y todas las ventajas completas de la V1.</p>
-                <div class="amount">€10<span>/ lifetime</span></div>
+                <p class="card-desc">El estándar de la comunidad competitiva. Desbloquea ventajas avanzadas de bypass.</p>
+                <div class="price">€10<span>/ lifetime</span></div>
+                <div class="divider"></div>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> Versión 1.21</li>
-                    <li><i class="fa-solid fa-check"></i> Acceso de por vida</li>
-                    <li><i class="fa-solid fa-check"></i> Bypass Medal CPS</li>
-                    <li><i class="fa-solid fa-check"></i> Todo lo de V1</li>
-                    <li><i class="fa-solid fa-check"></i> Soporte prioritario</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Compatibilidad v1.21.4</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Acceso Lifetime de por vida</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Módulos PvP Esenciales</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Bypass Medal CPS In-game</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Soporte VIP Prioritario</li>
                 </ul>
-                <button class="price-btn btn-card-featured">Buy Now</button>
+                <a href="#" class="btn-buy featured-btn">ADQUIRIR YA</a>
             </div>
 
             <!-- PLAN .EXE -->
-            <div class="price-card">
+            <div class="price-card animate-on-scroll">
                 <h3>Hunter V2 EXE</h3>
-                <p class="desc">La versión avanzada, inyectable como .exe ejecutable para un máximo control externo y discreción absoluta.</p>
-                <div class="amount">€15<span>/ lifetime</span></div>
+                <p class="card-desc">La versión premium máxima. Inyección externa limpia directamente sobre memoria.</p>
+                <div class="price">€15<span>/ lifetime</span></div>
+                <div class="divider"></div>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> Versión 1.21</li>
-                    <li><i class="fa-solid fa-check"></i> Acceso de por vida</li>
-                    <li><i class="fa-solid fa-check"></i> Bypass Medal CPS</li>
-                    <li><i class="fa-solid fa-check"></i> Inyectable (.exe)</li>
-                    <li><i class="fa-solid fa-check"></i> Contacto con el dev</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Características de Hunter V2</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Archivo Ejecutable (.EXE)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Sistema de Auto-Destrucción</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Bypass de ScreenShare (SS)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Contacto directo con Devs</li>
                 </ul>
-                <button class="price-btn btn-card-standard">Buy Now</button>
+                <a href="#" class="btn-buy">ADQUIRIR YA</a>
             </div>
-
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 <span>Hunter Client</span>. No afiliado con Mojang Studios.</p>
+        <p>&copy; 2026 <span class="neon-text-footer">Hunter Client</span>. Todos los derechos reservados. No afiliado de ninguna forma con Mojang Synergies AB.</p>
     </footer>
 
+    <!-- SCRIPT DE INTERACTIVIDAD (SLIDER Y PARTICULAS) -->
+    <script>
+        // SCRIPT DEL SLIDER DE DIAPOSITIVAS
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            if (index >= slides.length) currentSlide = 0;
+            else if (index < 0) currentSlide = slides.length - 1;
+            else currentSlide = index;
+
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function moveSlide(step) {
+            showSlide(currentSlide + step);
+        }
+
+        // MOTOR DE PARTÍCULAS INTERACTIVAS NEON
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const particleArray = [];
+        const numberOfParticles = 65;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.6 - 0.3;
+                this.speedY = Math.random() * 0.6 - 0.3;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+                if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(255, 0, 51, 0.45)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            for (let i = 0; i < numberOfParticles; i++) {
+                particleArray.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particleArray.length; i++) {
+                particleArray[i].update();
+                particleArray[i].draw();
+            }
+            
+            // Dibujar líneas entre partículas cercanas
+            for (let a = 0; a < particleArray.length; a++) {
+                for (let b = a; b < particleArray.length; b++) {
+                    let dx = particleArray[a].x - particleArray[b].x;
+                    let dy = particleArray[a].y - particleArray[b].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 110) {
+                        ctx.strokeStyle = `rgba(255, 0, 51, ${0.12 - (distance / 110) * 0.12})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particleArray[a].x, particleArray[a].y);
+                        ctx.lineTo(particleArray[b].x, particleArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+    </script>
 </body>
 </html>
