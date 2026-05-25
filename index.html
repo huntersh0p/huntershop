@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunter Client | Next-Gen Minecraft Client</title>
+    <!-- Google Fonts para una tipografía moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- VARIABLES DE COLOR (Cambia el verde si prefieres otro color de acento) --- */
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: #1f2833;
+            --accent-color: #2ecc71; /* Verde Hunter */
+            --accent-glow: rgba(46, 204, 113, 0.4);
+            --text-color: #ffffff;
+            --text-muted: #c5a059; /* Un tono dorado sutil para detalles, o gris */
+            --gray: #a8a8a8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(11, 12, 16, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, rgba(46, 204, 113, 0.1) 0%, rgba(11, 12, 16, 1) 70%);
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-color);
+            text-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        /* Botones */
+        .btn-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 12px 35px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #000;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px var(--accent-color);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 2px solid var(--card-bg);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--card-bg);
+            transform: translateY(-3px);
+        }
+
+        /* --- FEATURES SECTION --- */
+        .features {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .features h2 span {
+            color: var(--accent-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 12px;
+            transition: transform 0.3s, border 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: left;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .card i {
+            font-size: 40px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #060709;
+            padding: 40px 8%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        footer p span {
+            color: var(--accent-color);
+        }
+
+        /* Responsivo para móviles */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 40px; }
+            .btn-container { flex-direction: column; width: 100%; max-width: 300px; }
+            nav { display: none; } /* Simplificado para móviles */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">Hunter<span>Client</span></div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#features">Características</a>
+            <a href="https://discord.gg/tu-invitacion" target="_blank">Discord</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1><span>Hunter</span> Client</h1>
+        <p>Eleva tu experiencia en Minecraft. Optimización extrema de FPS, mods integrados avanzados y una interfaz completamente personalizable para dominar en PvP.</p>
+        <div class="btn-container">
+            <!-- Reemplaza el # con los links de descarga reales de tu cliente -->
+            <a href="#" class="btn btn-primary"><i class="fa-solid fa-download"></i> Descargar Ahora</a>
+            <a href="https://discord.gg/tu-invitacion" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-discord"></i> Discord</a>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features" id="features">
+        <h2>¿Por qué elegir <span>Hunter</span>?</h2>
+        <div class="grid">
+            <!-- Característica 1 -->
+            <div class="card">
+                <i class="fa-solid fa-gauge-high"></i>
+                <h3>FPS Boost</h3>
+                <p>Optimización interna de código y renderizado de texturas para garantizar la máxima fluidez incluso en modalidades masivas como Box PvP.</p>
+            </div>
+            <!-- Característica 2 -->
+            <div class="card">
+                <i class="fa-solid fa-cubes"></i>
+                <h3>Mods Integrados</h3>
+                <p>HUD personalizado, Keystrokes, ArmorStatus, ToggleSprint y más. Todo configurable desde un menú intuitivo in-game.</p>
+            </div>
+            <!-- Característica 3 -->
+            <div class="card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Anticheat Friendly</h3>
+                <p>Módulos limpios y optimizados que cumplen con las normativas de los principales sistemas anticheat (Vulcan, Grim, etc.).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 <span>Hunter Client</span>. No afiliado con Mojang Studios.</p>
+    </footer>
+
+</body>
+</html>
