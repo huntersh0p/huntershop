@@ -1,24 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hunter Client | Next-Gen Minecraft Client</title>
-    <!-- Google Fonts para una tipografía moderna -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome para los íconos -->
+    <title>Hunter Client | Web Oficial</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome para Íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- VARIABLES DE COLOR (Cambia el verde si prefieres otro color de acento) --- */
+        /* --- CONFIGURACIÓN BASE Y VARIABLES (Estilo Neon Rojo) --- */
         :root {
-            --bg-color: #0b0c10;
-            --card-bg: #1f2833;
-            --accent-color: #2ecc71; /* Verde Hunter */
-            --accent-glow: rgba(46, 204, 113, 0.4);
-            --text-color: #ffffff;
-            --text-muted: #c5a059; /* Un tono dorado sutil para detalles, o gris */
-            --gray: #a8a8a8;
+            --bg-main: #050505;
+            --bg-card: #0d0d0d;
+            --bg-card-hover: #121212;
+            --accent-neon: #ff0033;
+            --accent-glow: rgba(255, 0, 51, 0.6);
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-color: #1a1a1a;
         }
 
         * {
@@ -26,198 +27,338 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* --- NAVBAR --- */
+        /* --- BARRA DE NAVEGACIÓN --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 8%;
-            background: rgba(11, 12, 16, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(12px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 42px;
+            width: auto;
+            filter: drop-shadow(0 0 8px var(--accent-neon));
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .logo span {
-            color: var(--accent-color);
+        .logo-text span {
+            color: var(--accent-neon);
             text-shadow: 0 0 10px var(--accent-glow);
         }
 
         nav a {
-            color: var(--text-color);
+            color: var(--text-main);
             text-decoration: none;
-            margin-left: 20px;
+            margin-left: 25px;
             font-weight: 600;
-            transition: 0.3s;
+            font-size: 15px;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: var(--accent-color);
+            color: var(--accent-neon);
+            text-shadow: 0 0 8px var(--accent-glow);
         }
 
-        /* --- HERO SECTION --- */
+        /* --- SECCIÓN HERO --- */
         .hero {
-            height: 100vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
-            background: radial-gradient(circle at center, rgba(46, 204, 113, 0.1) 0%, rgba(11, 12, 16, 1) 70%);
-            margin-top: 60px;
+            padding: 120px 20px 60px 20px;
+            background: radial-gradient(circle at center, rgba(255, 0, 51, 0.12) 0%, rgba(5, 5, 5, 1) 65%);
         }
 
         .hero h1 {
-            font-size: 64px;
-            font-weight: 800;
+            font-size: 68px;
+            font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             letter-spacing: 2px;
+            line-height: 1.1;
         }
 
         .hero h1 span {
-            color: var(--accent-color);
+            color: var(--accent-neon);
             text-shadow: 0 0 20px var(--accent-glow);
         }
 
         .hero p {
-            font-size: 18px;
-            color: var(--gray);
-            max-width: 600px;
-            margin-bottom: 30px;
+            font-size: 19px;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 35px;
         }
 
-        /* Botones */
-        .btn-container {
+        /* --- BOTONES --- */
+        .btn-group {
             display: flex;
             gap: 20px;
         }
 
         .btn {
-            padding: 12px 35px;
+            padding: 14px 38px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: 8px;
             text-decoration: none;
             text-transform: uppercase;
             transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .btn-primary {
-            background-color: var(--accent-color);
-            color: #000;
+            background-color: var(--accent-neon);
+            color: #ffffff;
             box-shadow: 0 0 15px var(--accent-glow);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 25px var(--accent-color);
+            box-shadow: 0 0 25px var(--accent-neon);
         }
 
         .btn-secondary {
             background-color: transparent;
-            color: var(--text-color);
-            border: 2px solid var(--card-bg);
+            color: var(--text-main);
+            border: 2px solid var(--border-color);
         }
 
         .btn-secondary:hover {
-            background-color: var(--card-bg);
+            background-color: var(--bg-card);
+            border-color: var(--accent-neon);
             transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);
         }
 
-        /* --- FEATURES SECTION --- */
-        .features {
+        /* --- SECCIÓN PRECIOS / PLANES --- */
+        .pricing {
             padding: 100px 8%;
             text-align: center;
+            background-color: #080808;
         }
 
-        .features h2 {
-            font-size: 36px;
-            margin-bottom: 50px;
+        .pricing h2 {
+            font-size: 40px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .pricing h2 span {
+            color: var(--accent-neon);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .pricing-subtitle {
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-bottom: 60px;
+        }
+
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 45px 35px;
+            width: 320px;
+            text-align: left;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-neon);
+            box-shadow: 0 10px 30px rgba(255, 0, 51, 0.15);
+            background-color: var(--bg-card-hover);
+        }
+
+        /* Destacar el plan Premium */
+        .price-card.featured {
+            border: 2px solid var(--accent-neon);
+            box-shadow: 0 0 20px rgba(255, 0, 51, 0.2);
+            background-color: #0e0708;
+        }
+
+        .price-card.featured:hover {
+            box-shadow: 0 10px 35px rgba(255, 0, 51, 0.3);
+        }
+
+        .badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-neon);
+            color: #fff;
+            padding: 4px 16px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 20px;
+            box-shadow: 0 0 10px var(--accent-glow);
+            letter-spacing: 1px;
+        }
+
+        .price-card h3 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 5px;
             text-transform: uppercase;
         }
 
-        .features h2 span {
-            color: var(--accent-color);
+        .price-card .desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 25px;
+            min-height: 42px;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+        .price-card .amount {
+            font-size: 42px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: baseline;
         }
 
-        .card {
-            background-color: var(--card-bg);
-            padding: 40px 30px;
-            border-radius: 12px;
-            transition: transform 0.3s, border 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            text-align: left;
+        .price-card .amount span {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-left: 5px;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-color);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 35px;
         }
 
-        .card i {
-            font-size: 40px;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .card h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: var(--gray);
+        .price-card li {
             font-size: 15px;
-            line-height: 1.6;
+            margin-bottom: 12px;
+            color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .price-card li i {
+            color: var(--accent-neon);
+            font-size: 16px;
+        }
+
+        .price-card li.disabled {
+            color: #555;
+        }
+
+        .price-card li.disabled i {
+            color: #444;
+        }
+
+        .price-btn {
+            width: 100%;
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .btn-card-standard {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-card-standard:hover {
+            background-color: var(--text-main);
+            color: #000;
+        }
+
+        .btn-card-featured {
+            background-color: var(--accent-neon);
+            color: #fff;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .btn-card-featured:hover {
+            box-shadow: 0 0 20px var(--accent-neon);
+            transform: scale(1.02);
         }
 
         /* --- FOOTER --- */
         footer {
-            background-color: #060709;
+            background-color: #030303;
             padding: 40px 8%;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--gray);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
             font-size: 14px;
         }
 
         footer p span {
-            color: var(--accent-color);
+            color: var(--accent-neon);
         }
 
-        /* Responsivo para móviles */
+        /* --- RESPONSIVO --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 40px; }
-            .btn-container { flex-direction: column; width: 100%; max-width: 300px; }
-            nav { display: none; } /* Simplificado para móviles */
+            .hero h1 { font-size: 44px; }
+            .btn-group { flex-direction: column; width: 100%; max-width: 300px; }
+            nav { display: none; }
+            .price-card { width: 100%; max-width: 340px; }
         }
     </style>
 </head>
@@ -225,10 +366,14 @@
 
     <!-- NAVBAR -->
     <header>
-        <div class="logo">Hunter<span>Client</span></div>
+        <div class="logo-container">
+            <!-- Espacio reservado para tu logo local {CFE1CD3F-6EDA-4919-BC7C-FB81DB2E880B}.png -->
+            <img src="https://placehold.co/100x100/000/ff0033?text=H" alt="Hunter Logo" class="logo-img">
+            <div class="logo-text">Hunter<span>Client</span></div>
+        </div>
         <nav>
             <a href="#">Inicio</a>
-            <a href="#features">Características</a>
+            <a href="#precios">Precios</a>
             <a href="https://discord.gg/tu-invitacion" target="_blank">Discord</a>
         </nav>
     </header>
@@ -236,42 +381,72 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <h1><span>Hunter</span> Client</h1>
-        <p>Eleva tu experiencia en Minecraft. Optimización extrema de FPS, mods integrados avanzados y una interfaz completamente personalizable para dominar en PvP.</p>
-        <div class="btn-container">
-            <!-- Reemplaza el # con los links de descarga reales de tu cliente -->
-            <a href="#" class="btn btn-primary"><i class="fa-solid fa-download"></i> Descargar Ahora</a>
-            <a href="https://discord.gg/tu-invitacion" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-discord"></i> Discord</a>
+        <p>El cliente de Minecraft definitivo optimizado para el PvP competitivo. Incremento masivo de FPS, ventajas exclusivas y rendimiento indetectable.</p>
+        <div class="btn-group">
+            <a href="#precios" class="btn btn-primary"><i class="fa-solid fa-download"></i> Obtener Cliente</a>
+            <a href="https://discord.gg/tu-invitacion" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-discord"></i> Discord Oficial</a>
         </div>
     </section>
 
-    <!-- FEATURES SECTION -->
-    <section class="features" id="features">
-        <h2>¿Por qué elegir <span>Hunter</span>?</h2>
-        <div class="grid">
-            <!-- Característica 1 -->
-            <div class="card">
-                <i class="fa-solid fa-gauge-high"></i>
-                <h3>FPS Boost</h3>
-                <p>Optimización interna de código y renderizado de texturas para garantizar la máxima fluidez incluso en modalidades masivas como Box PvP.</p>
+    <!-- SECCIÓN DE PRECIOS -->
+    <section class="pricing" id="precios">
+        <h2>Elige tu <span>Edición</span></h2>
+        <p class="pricing-subtitle">Planes adaptados con acceso permanente (Lifetime) para dominar cada partida.</p>
+        
+        <div class="pricing-grid">
+            
+            <!-- PLAN BÁSICO -->
+            <div class="price-card">
+                <h3>Básico</h3>
+                <p class="desc">La versión perfecta para iniciar y experimentar la mejora de rendimiento básica.</p>
+                <div class="amount">€5<span>/ Lifetime</span></div>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Optimización de FPS base</li>
+                    <li><i class="fa-solid fa-check"></i> Mods PvP Esenciales (HUD)</li>
+                    <li><i class="fa-solid fa-check"></i> Soporte comunitario</li>
+                    <li class="disabled"><i class="fa-solid fa-xmark"></i> Bypass de Anticheats Pro</li>
+                    <li class="disabled"><i class="fa-solid fa-xmark"></i> Versión Ejecutable Inyectable</li>
+                </ul>
+                <a href="#" class="price-btn btn-card-standard">Comprar Básico</a>
             </div>
-            <!-- Característica 2 -->
-            <div class="card">
-                <i class="fa-solid fa-cubes"></i>
-                <h3>Mods Integrados</h3>
-                <p>HUD personalizado, Keystrokes, ArmorStatus, ToggleSprint y más. Todo configurable desde un menú intuitivo in-game.</p>
+
+            <!-- PLAN PREMIUM (DESTACADO) -->
+            <div class="price-card featured">
+                <div class="badge">Más Elegido</div>
+                <h3>Premium</h3>
+                <p class="desc">El estándar de oro para los jugadores competitivos. Módulos avanzados in-game.</p>
+                <div class="amount">€10<span>/ Lifetime</span></div>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Optimización Avanzada de FPS</li>
+                    <li><i class="fa-solid fa-check"></i> Todos los Mods PvP Desbloqueados</li>
+                    <li><i class="fa-solid fa-check"></i> Bypass Medal CPS Integrado</li>
+                    <li><i class="fa-solid fa-check"></i> Soporte VIP en Discord</li>
+                    <li class="disabled"><i class="fa-solid fa-xmark"></i> Versión Ejecutable Inyectable</li>
+                </ul>
+                <a href="#" class="price-btn btn-card-featured">Comprar Premium</a>
             </div>
-            <!-- Característica 3 -->
-            <div class="card">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h3>Anticheat Friendly</h3>
-                <p>Módulos limpios y optimizados que cumplen con las normativas de los principales sistemas anticheat (Vulcan, Grim, etc.).</p>
+
+            <!-- PLAN .EXE -->
+            <div class="price-card">
+                <h3>.EXE (Inyectable)</h3>
+                <p class="desc">Máximo control y discreción extrema mediante inyección directa en memoria.</p>
+                <div class="amount">€15<span>/ Lifetime</span></div>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Todo lo incluido en Premium</li>
+                    <li><i class="fa-solid fa-check"></i> Cliente Inyectable (.exe)</li>
+                    <li><i class="fa-solid fa-check"></i> Módulo de Auto-Destrucción total</li>
+                    <li><i class="fa-solid fa-check"></i> Bypass Avanzado de ScreenShare</li>
+                    <li><i class="fa-solid fa-check"></i> Soporte directo del Desarrollador</li>
+                </ul>
+                <a href="#" class="price-btn btn-card-standard">Comprar .EXE</a>
             </div>
+
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 <span>Hunter Client</span>. No afiliado con Mojang Studios.</p>
+        <p>&copy; 2026 <span>Hunter Client</span>. Todos los derechos reservados. No afiliado con Mojang Studios.</p>
     </footer>
 
 </body>
