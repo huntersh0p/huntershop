@@ -60,7 +60,6 @@ header {
     gap: 12px;
 }
 
-/* LOGO BLANCO CON GLOW PLATEADO NEON */
 .logo-img {
     height: 42px;
     width: auto;
@@ -440,7 +439,7 @@ h2 span {
     border: 1px solid var(--border-dim);
     padding: 28px 24px;
     border-radius: 16px;
-    width: 130px;
+    width: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -454,24 +453,18 @@ h2 span {
     box-shadow: 0 10px 25px rgba(192, 192, 192, 0.12);
 }
 
-.srv-ico {
-    width: 50px;
-    height: 50px;
-    background-color: var(--bg-surface-accent);
+/* IMAGEN DEL SERVIDOR */
+.srv-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    object-fit: cover;
     border: 1px solid rgba(192, 192, 192, 0.15);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--neon-color);
-    font-weight: 900;
-    font-size: 19px;
     transition: var(--transition-smooth);
 }
 
-.server-card:hover .srv-ico {
-    background-color: var(--neon-color);
-    color: #000;
+.server-card:hover .srv-img {
+    border-color: var(--neon-color);
     box-shadow: 0 0 15px var(--neon-glow);
 }
 
