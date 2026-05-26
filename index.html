@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Urbanist:wght@400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
 
@@ -91,31 +92,45 @@
         
         <div class="servers-grid visual-reveal">
             <div class="server-card">
-                <img src="https://cdn.discordapp.com/attachments/1497738737420079104/1508621783983460504/image.png?ex=6a163506&is=6a14e386&hm=eb139c626f67d5ca6470d6164eea923623ab2c4d213959ea4ce0b221cb070b29&" alt="SnowMC" class="srv-img">
+                <div class="srv-img-wrap">
+                    <img src="https://cdn.discordapp.com/attachments/1497738737420079104/1508621783983460504/image.png?ex=6a163506&is=6a14e386&hm=eb139c626f67d5ca6470d6164eea923623ab2c4d213959ea4ce0b221cb070b29&" alt="SnowMC" class="srv-img">
+                </div>
                 <h4>SnowMC</h4>
             </div>
             <div class="server-card">
-                <img src="https://cdn.discordapp.com/attachments/1497738737420079104/1508620940341415986/image.png?ex=6a16343c&is=6a14e2bc&hm=e65247909b5ea99aef6bae3990acfc78b8b8d877e98572eeaf51925741878d3e&" alt="MineGold" class="srv-img">
+                <div class="srv-img-wrap">
+                    <img src="https://cdn.discordapp.com/attachments/1497738737420079104/1508620940341415986/image.png?ex=6a16343c&is=6a14e2bc&hm=e65247909b5ea99aef6bae3990acfc78b8b8d877e98572eeaf51925741878d3e&" alt="MineGold" class="srv-img">
+                </div>
                 <h4>MineGold</h4>
             </div>
             <div class="server-card">
-                <img src="https://cdn.discordapp.com/attachments/1497738737420079104/1508620259626582016/image.png?ex=6a16339a&is=6a14e21a&hm=9753896144b4a7103a4412233215dc0875195d71322f3c755c6e3ef501482809&" alt="KrakenMC" class="srv-img">
+                <div class="srv-img-wrap">
+                    <img src="https://cdn.discordapp.com/attachments/1497738737420079104/1508620259626582016/image.png?ex=6a16339a&is=6a14e21a&hm=9753896144b4a7103a4412233215dc0875195d71322f3c755c6e3ef501482809&" alt="KrakenMC" class="srv-img">
+                </div>
                 <h4>KrakenMC</h4>
             </div>
             <div class="server-card">
-                <img src="https://cdn.discordapp.com/attachments/1497738737420079104/1508620446310858813/image.png?ex=6a1633c7&is=6a14e247&hm=c2bcc1911d9b14b91f6c6bfd67ad8cdd50aba6ef5b42017c3a8a1cb8e3249145&" alt="TiltedBox" class="srv-img">
+                <div class="srv-img-wrap">
+                    <img src="https://cdn.discordapp.com/attachments/1497738737420079104/1508620446310858813/image.png?ex=6a1633c7&is=6a14e247&hm=c2bcc1911d9b14b91f6c6bfd67ad8cdd50aba6ef5b42017c3a8a1cb8e3249145&" alt="TiltedBox" class="srv-img">
+                </div>
                 <h4>TiltedBox</h4>
             </div>
             <div class="server-card">
-                <img src="https://cdn.discordapp.com/attachments/1497738737420079104/1508621584301293708/image.png?ex=6a1634d6&is=6a14e356&hm=38544eee046982b4c6a318ed03a3c01ac1e56df099e14b27d73e9af92cf282f2&" alt="MineBoom" class="srv-img">
+                <div class="srv-img-wrap">
+                    <img src="https://cdn.discordapp.com/attachments/1497738737420079104/1508621584301293708/image.png?ex=6a1634d6&is=6a14e356&hm=38544eee046982b4c6a318ed03a3c01ac1e56df099e14b27d73e9af92cf282f2&" alt="MineBoom" class="srv-img">
+                </div>
                 <h4>MineBoom</h4>
             </div>
             <div class="server-card">
-                <img src="https://cdn.discordapp.com/attachments/1497738737420079104/1508621456144076830/image.png?ex=6a1634b7&is=6a14e337&hm=b6b355206c7cf3cec852da9284c89db98f25044322a0a0cd68ab133dafd49c45&" alt="MineSplash" class="srv-img">
+                <div class="srv-img-wrap">
+                    <img src="https://cdn.discordapp.com/attachments/1497738737420079104/1508621456144076830/image.png?ex=6a1634b7&is=6a14e337&hm=b6b355206c7cf3cec852da9284c89db98f25044322a0a0cd68ab133dafd49c45&" alt="MineSplash" class="srv-img">
+                </div>
                 <h4>MineSplash</h4>
             </div>
             <div class="server-card">
-                <img src="https://cdn.discordapp.com/attachments/1497738737420079104/1508621699481080039/image.png?ex=6a1634f1&is=6a14e371&hm=d873acc576f1935829b965f95125c67d6d6d629f996950045504ed343c531b43&" alt="ElectroMC" class="srv-img">
+                <div class="srv-img-wrap">
+                    <img src="https://cdn.discordapp.com/attachments/1497738737420079104/1508621699481080039/image.png?ex=6a1634f1&is=6a14e371&hm=d873acc576f1935829b965f95125c67d6d6d629f996950045504ed343c531b43&" alt="ElectroMC" class="srv-img">
+                </div>
                 <h4>ElectroMC</h4>
             </div>
         </div>
@@ -177,25 +192,27 @@
         </div>
         
         <div class="pricing-grid">
+            <!-- HELL V1 - SUSCRIPCIÓN $5/MES -->
             <div class="price-card visual-reveal">
-                <h3>Hunter Basic</h3>
-                <p class="card-desc">Perfect to experience the core ghost client architecture with essential cheat modules and permanent access.</p>
-                <div class="price">$5<span>/ lifetime</span></div>
+                <h3>Hell V1</h3>
+                <p class="card-desc">Perfect to experience the core ghost client architecture with essential modules.</p>
+                <div class="price">$5<span>/ month</span></div>
                 <div class="divider"></div>
                 <ul>
                     <li><i class="fa-solid fa-circle-check"></i> Minecraft 1.21 Compatibility</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Lifetime Access</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Monthly Subscription</li>
                     <li><i class="fa-solid fa-circle-check"></i> Core Ghost Modules</li>
                     <li class="blocked"><i class="fa-solid fa-circle-xmark"></i> Advanced Click Bypass</li>
                     <li class="blocked"><i class="fa-solid fa-circle-xmark"></i> Injectable Binary (.EXE)</li>
                 </ul>
-                <a href="#" class="btn-buy">Buy Now</a>
+                <button class="btn-buy" onclick="checkout('price_v1_subscription', 'subscription')">Subscribe Now</button>
             </div>
 
+            <!-- HELL V2 - PAGO ÚNICO $10 LIFETIME -->
             <div class="price-card featured visual-reveal">
                 <div class="popular-tag">Most Popular</div>
-                <h3>Hunter V2</h3>
-                <p class="card-desc">The community preference. Unlocks refined bypass mechanics and full ghost client features for premium engagement.</p>
+                <h3>Hell V2</h3>
+                <p class="card-desc">The community preference. Unlocks refined bypass mechanics for premium engagement.</p>
                 <div class="price">$10<span>/ lifetime</span></div>
                 <div class="divider"></div>
                 <ul>
@@ -205,22 +222,23 @@
                     <li><i class="fa-solid fa-circle-check"></i> Includes All V1 Features</li>
                     <li><i class="fa-solid fa-circle-check"></i> Priority Ticket Support</li>
                 </ul>
-                <a href="#" class="btn-buy featured-btn">Buy Now</a>
+                <button class="btn-buy featured-btn" onclick="checkout('price_v2_lifetime', 'payment')">Buy Now</button>
             </div>
 
+            <!-- HELL V2 EXE - PAGO ÚNICO $15 LIFETIME -->
             <div class="price-card visual-reveal">
-                <h3>Hunter EXE</h3>
-                <p class="card-desc">The ultimate ghost client tier. Runs directly via external execution memory mapping protocols for maximum stealth.</p>
+                <h3>Hell V2 EXE</h3>
+                <p class="card-desc">The ultimate ghost client tier. Runs directly via external execution memory mapping protocols.</p>
                 <div class="price">$15<span>/ lifetime</span></div>
                 <div class="divider"></div>
                 <ul>
-                    <li><i class="fa-solid fa-circle-check"></i> Hunter V2 Feature Set</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Hell V2 Feature Set</li>
                     <li><i class="fa-solid fa-circle-check"></i> Injectable Executable (.EXE)</li>
                     <li><i class="fa-solid fa-circle-check"></i> Instant Self-Destruct Sequence</li>
                     <li><i class="fa-solid fa-circle-check"></i> Elite Concealment Features</li>
                     <li><i class="fa-solid fa-circle-check"></i> Direct Developer Channel</li>
                 </ul>
-                <a href="#" class="btn-buy">Buy Now</a>
+                <button class="btn-buy" onclick="checkout('price_exe_lifetime', 'payment')">Buy Now</button>
             </div>
         </div>
     </section>
@@ -230,6 +248,23 @@
     </footer>
 
     <script>
+        // ========== STRIPE CHECKOUT ==========
+        const stripe = Stripe('pk_test_TU_CLAVE_PUBLICA_AQUI');
+
+        function checkout(priceId, mode) {
+            stripe.redirectToCheckout({
+                lineItems: [{ price: priceId, quantity: 1 }],
+                mode: mode,
+                successUrl: 'https://tupagina.com/success',
+                cancelUrl: 'https://tupagina.com/cancel',
+            }).then(function (result) {
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            });
+        }
+
+        // ========== SLIDER ==========
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
 
@@ -250,6 +285,7 @@
             showSlide(currentSlide + step);
         }
 
+        // ========== PARTICLES ==========
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -320,6 +356,7 @@
         initParticles();
         animateParticles();
 
+        // ========== SCROLL REVEAL ==========
         const observerOptions = {
             threshold: 0.1,
             rootMargin: "0px 0px -50px 0px"
